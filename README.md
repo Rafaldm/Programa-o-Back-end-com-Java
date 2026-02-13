@@ -1,146 +1,76 @@
 # CadastroPOO
 
-Projeto desenvolvido para a disciplina de Programação Orientada a Objetos.
+Projeto desenvolvido na disciplina de Programação Orientada a Objetos.
 
-O sistema foi implementado em Java utilizando o NetBeans (Java Ant Application) e tem como objetivo aplicar conceitos fundamentais de POO, herança, polimorfismo e persistência de dados em arquivos binários.
+O sistema foi feito em Java e permite cadastrar Pessoa Física e Pessoa Jurídica, com opção de salvar e recuperar os dados em arquivos.
 
 ---
 
-# 📌 Procedimento 1 – Criação das Entidades e Sistema de Persistência
+## Procedimento 1 – Estrutura do Projeto
 
-## 🎯 Objetivo
+Nesta parte foram criadas as classes principais do sistema:
 
-Criar as entidades do sistema utilizando herança e implementar a persistência dos dados em arquivos binários utilizando a interface Serializable.
-
-## 🏗 Estrutura do Projeto
-
-### Pacote: model
-
-Classes criadas:
-
-- Pessoa
+- Pessoa (classe base)
 - PessoaFisica
 - PessoaJuridica
 - PessoaFisicaRepo
 - PessoaJuridicaRepo
 
-### 🔹 Classe Pessoa
-Classe base contendo:
-- id
-- nome
-- método exibir()
-- construtores
-- getters e setters
-- implementação da interface Serializable
+A classe Pessoa é a base das outras duas.  
+PessoaFisica e PessoaJuridica herdam seus atributos e adicionam informações específicas (CPF ou CNPJ).
 
-### 🔹 Classe PessoaFisica
-Herda de Pessoa e adiciona:
-- cpf
-- idade
-- método exibir() polimórfico
+As classes de repositório são responsáveis por:
 
-### 🔹 Classe PessoaJuridica
-Herda de Pessoa e adiciona:
-- cnpj
-- método exibir() polimórfico
+- Inserir
+- Alterar
+- Excluir
+- Buscar por id
+- Listar todos
+- Salvar em arquivo
+- Recuperar do arquivo
+
+A persistência foi feita utilizando arquivos binários (.bin).
 
 ---
 
-## 💾 Persistência de Dados
+## Procedimento 2 – Cadastro em Modo Texto
 
-Foram criadas duas classes de repositório:
+Foi implementado um menu no método `main`, permitindo que o usuário escolha as opções pelo teclado.
 
-- PessoaFisicaRepo
-- PessoaJuridicaRepo
+Menu disponível:
 
-Essas classes são responsáveis por:
-
-- inserir
-- alterar
-- excluir
-- obter por id
-- obter todos
-- persistir dados em arquivo
-- recuperar dados do arquivo
-
-A persistência é feita utilizando:
-
-- ObjectOutputStream
-- ObjectInputStream
-- Interface Serializable
-
-Os dados são armazenados em arquivos binários.
-
----
-
-# 📌 Procedimento 2 – Cadastro em Modo Texto
-
-## 🎯 Objetivo
-
-Implementar um sistema interativo em modo texto, permitindo que o usuário gerencie o cadastro pelo terminal.
-
-## 🖥 Funcionalidades Implementadas
-
-Menu com as opções:
-
-1 - Incluir Pessoa  
-2 - Alterar Pessoa  
-3 - Excluir Pessoa  
+1 - Incluir  
+2 - Alterar  
+3 - Excluir  
 4 - Buscar pelo Id  
 5 - Exibir Todos  
 6 - Persistir Dados  
 7 - Recuperar Dados  
-0 - Finalizar Programa  
+0 - Sair  
+
+O usuário escolhe o tipo de pessoa (F ou J) e informa os dados pelo teclado utilizando a classe Scanner.
+
+Os dados podem ser salvos com um prefixo definido pelo usuário, gerando:
+
+- prefixo.fisica.bin  
+- prefixo.juridica.bin  
+
+Também é possível recuperar esses dados depois.
 
 ---
 
-## 🧠 Funcionamento
-
-- O usuário escolhe o tipo de pessoa (Física ou Jurídica).
-- Os dados são digitados pelo teclado utilizando a classe Scanner.
-- As informações são manipuladas através das classes de repositório.
-- A persistência salva os dados nos arquivos:
-
-  prefixo.fisica.bin  
-  prefixo.juridica.bin  
-
-- A recuperação lê os arquivos e carrega os dados novamente na memória.
-
----
-
-# 🏛 Conceitos Aplicados
+## Conceitos Utilizados
 
 - Programação Orientada a Objetos
 - Herança
 - Polimorfismo
-- Encapsulamento
 - Serializable
-- Manipulação de arquivos binários
-- Estrutura de repetição (while)
-- Estrutura de decisão (switch)
-- Classe Scanner
-- Padrão DAO (Data Access Object)
+- Manipulação de arquivos
+- Uso da classe Scanner
+- Organização em pacotes
 
 ---
 
-# 📝 Análise Geral
+## Observação
 
-O projeto permitiu aplicar na prática os principais conceitos de orientação a objetos. A separação entre entidades e repositórios ajudou a manter o código organizado e mais fácil de entender.
-
-A implementação da persistência mostrou como é possível salvar objetos diretamente em arquivos binários, aproximando o exercício de uma aplicação real.
-
-O modo texto reforçou o entendimento sobre entrada de dados, controle de fluxo e organização lógica do sistema.
-
----
-
-# 🚀 Tecnologias Utilizadas
-
-- Java
-- NetBeans
-- Git / GitHub
-
----
-
-# 👨‍💻 Autor
-
-Projeto desenvolvido para fins acadêmicos.
+O projeto foi versionado no Git conforme solicitado na atividade.
